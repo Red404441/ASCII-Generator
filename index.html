@@ -7,268 +7,45 @@
 <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   :root {
-    --bg: #f0f7f0;
-    --green: #007a1f;
-    --green-dim: #009926;
-    --green-dark: #c8ecd0;
-    --green-faint: #e2f5e7;
-    --surface: #ffffff;
-    --border: #b2d9bc;
-    --text: #005c17;
-    --muted: #5a9968;
+    --bg: #f0f7f0; --green: #007a1f; --green-dim: #009926; --green-dark: #c8ecd0;
+    --green-faint: #e2f5e7; --surface: #ffffff; --border: #b2d9bc; --muted: #5a9968;
     --glow: 0 0 10px #00aa2b44, 0 0 20px #00aa2b22;
   }
-
-  body {
-    background: var(--bg);
-    color: var(--green);
-    font-family: 'Share Tech Mono', monospace;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    overflow-x: hidden;
-  }
-
-
-
-  header {
-    padding: 24px 40px 20px;
-    border-bottom: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .logo {
-    font-family: 'Orbitron', monospace;
-    font-weight: 900;
-    font-size: 1.4rem;
-    letter-spacing: 0.15em;
-    color: var(--green);
-    text-shadow: var(--glow);
-  }
-
+  body { background: var(--bg); color: var(--green); font-family: 'Share Tech Mono', monospace; min-height: 100vh; display: flex; flex-direction: column; overflow-x: hidden; }
+  header { padding: 24px 40px 20px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+  .logo { font-family: 'Orbitron', monospace; font-weight: 900; font-size: 1.4rem; letter-spacing: 0.15em; color: var(--green); text-shadow: var(--glow); }
   .logo span { color: var(--green-dim); font-weight: 700; font-size: 0.75rem; letter-spacing: 0.2em; display: block; margin-top: 2px; }
-
-  .status {
-    font-size: 0.7rem;
-    color: var(--muted);
-    letter-spacing: 0.1em;
-  }
-
+  .status { font-size: 0.7rem; color: var(--muted); letter-spacing: 0.1em; }
   .status::before { content: '● '; color: var(--green); animation: blink 1.2s step-end infinite; }
   @keyframes blink { 50% { opacity: 0; } }
-
-  .main {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    padding: 28px 40px;
-    gap: 24px;
-  }
-
-  .input-row {
-    display: flex;
-    gap: 12px;
-    align-items: flex-end;
-  }
-
-  .field {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  label {
-    font-size: 0.65rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-
-  input[type="text"] {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    color: var(--green);
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 1rem;
-    padding: 10px 16px;
-    outline: none;
-    width: 320px;
-    transition: border-color 0.2s, box-shadow 0.2s;
-    caret-color: var(--green);
-  }
-
-  input[type="text"]:focus {
-    border-color: var(--green-dim);
-    box-shadow: 0 0 0 1px var(--green-dark), inset 0 0 20px rgba(0,255,65,0.03);
-  }
-
+  .main { flex: 1; display: flex; flex-direction: column; padding: 28px 40px; gap: 24px; }
+  .input-row { display: flex; gap: 12px; align-items: flex-end; }
+  .field { display: flex; flex-direction: column; gap: 6px; }
+  label { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); }
+  input[type="text"] { background: var(--surface); border: 1px solid var(--border); color: var(--green); font-family: 'Share Tech Mono', monospace; font-size: 1rem; padding: 10px 16px; outline: none; width: 320px; transition: border-color 0.2s, box-shadow 0.2s; caret-color: var(--green); }
+  input[type="text"]:focus { border-color: var(--green-dim); box-shadow: 0 0 0 1px var(--green-dark); }
   input[type="text"]::placeholder { color: var(--muted); }
-
-  select {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    color: var(--green);
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 0.82rem;
-    padding: 10px 14px;
-    outline: none;
-    cursor: pointer;
-    appearance: none;
-    -webkit-appearance: none;
-    padding-right: 32px;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%2300aa2b'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 10px center;
-    transition: border-color 0.2s;
-  }
-
+  select { background: var(--surface); border: 1px solid var(--border); color: var(--green); font-family: 'Share Tech Mono', monospace; font-size: 0.82rem; padding: 10px 14px; outline: none; cursor: pointer; appearance: none; -webkit-appearance: none; padding-right: 32px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%2300aa2b'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 10px center; transition: border-color 0.2s; }
   select:focus { border-color: var(--green-dim); }
-  select option { background: #050a05; }
-
-  .btn-generate {
-    background: var(--green-dark);
-    border: 1px solid var(--green-dim);
-    color: var(--green);
-    font-family: 'Orbitron', monospace;
-    font-weight: 700;
-    font-size: 0.78rem;
-    letter-spacing: 0.12em;
-    padding: 11px 28px;
-    cursor: pointer;
-    transition: background 0.15s, box-shadow 0.15s, transform 0.1s;
-    text-transform: uppercase;
-  }
-
-  .btn-generate:hover {
-    background: #006618;
-    box-shadow: 0 4px 12px rgba(0,120,30,0.3);
-    transform: translateY(-1px);
-  }
-
+  .btn-generate { background: var(--green-dark); border: 1px solid var(--green-dim); color: var(--green); font-family: 'Orbitron', monospace; font-weight: 700; font-size: 0.78rem; letter-spacing: 0.12em; padding: 11px 28px; cursor: pointer; transition: background 0.15s, box-shadow 0.15s, transform 0.1s; text-transform: uppercase; }
+  .btn-generate:hover { background: #006618; color: #fff; box-shadow: 0 4px 12px rgba(0,120,30,0.3); transform: translateY(-1px); }
   .btn-generate:active { transform: translateY(0); }
-
-  .size-row {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-  }
-
-  .size-btn {
-    background: transparent;
-    border: 1px solid var(--border);
-    color: var(--muted);
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 0.72rem;
-    padding: 6px 14px;
-    cursor: pointer;
-    letter-spacing: 0.08em;
-    transition: all 0.15s;
-  }
-
-  .size-btn:hover, .size-btn.active {
-    border-color: var(--green-dim);
-    color: var(--green);
-    background: var(--green-faint);
-  }
-
-  .output-container {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    border: 1px solid var(--border);
-    background: var(--surface);
-    min-height: 300px;
-  }
-
-  .output-toolbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 8px 16px;
-    border-bottom: 1px solid var(--border);
-    background: var(--green-faint);
-  }
-
-  .output-toolbar span {
-    font-size: 0.65rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-
+  .size-row { display: flex; gap: 8px; align-items: center; }
+  .size-btn { background: transparent; border: 1px solid var(--border); color: var(--muted); font-family: 'Share Tech Mono', monospace; font-size: 0.72rem; padding: 6px 14px; cursor: pointer; letter-spacing: 0.08em; transition: all 0.15s; }
+  .size-btn:hover, .size-btn.active { border-color: var(--green-dim); color: var(--green); background: var(--green-faint); }
+  .output-container { flex: 1; display: flex; flex-direction: column; border: 1px solid var(--border); background: var(--surface); min-height: 300px; }
+  .output-toolbar { display: flex; align-items: center; justify-content: space-between; padding: 8px 16px; border-bottom: 1px solid var(--border); background: var(--green-faint); }
+  .output-toolbar span { font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
   .toolbar-btns { display: flex; gap: 8px; }
-
-  .tb-btn {
-    background: transparent;
-    border: 1px solid var(--border);
-    color: var(--muted);
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 0.68rem;
-    padding: 4px 12px;
-    cursor: pointer;
-    letter-spacing: 0.08em;
-    transition: all 0.15s;
-  }
-
+  .tb-btn { background: transparent; border: 1px solid var(--border); color: var(--muted); font-family: 'Share Tech Mono', monospace; font-size: 0.68rem; padding: 4px 12px; cursor: pointer; letter-spacing: 0.08em; transition: all 0.15s; }
   .tb-btn:hover { color: var(--green); border-color: var(--green-dim); }
-
-  #ascii-output {
-    padding: 24px;
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 13px;
-    line-height: 1.2;
-    color: var(--green);
-    white-space: pre;
-    overflow: auto;
-    flex: 1;
-    min-height: 260px;
-    text-shadow: none;
-    outline: none;
-    user-select: text;
-  }
-
-  .placeholder-text {
-    color: var(--muted);
-    font-size: 0.8rem;
-    text-align: center;
-    padding: 60px 20px;
-    letter-spacing: 0.05em;
-    line-height: 1.8;
-  }
-
-  @keyframes typeIn {
-    from { opacity: 0; transform: translateY(4px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
+  #ascii-output { padding: 24px; font-family: 'Share Tech Mono', monospace; font-size: 13px; line-height: 1.2; color: var(--green); white-space: pre; overflow: auto; flex: 1; min-height: 260px; outline: none; user-select: text; }
+  .placeholder-text { color: var(--muted); font-size: 0.8rem; text-align: center; padding: 60px 20px; letter-spacing: 0.05em; line-height: 1.8; white-space: pre-wrap; }
+  @keyframes typeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
   .generated { animation: typeIn 0.3s ease-out; }
-
-  .copied-toast {
-    position: fixed;
-    bottom: 30px;
-    right: 40px;
-    background: var(--green-dark);
-    border: 1px solid var(--green-dim);
-    color: var(--green);
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 0.78rem;
-    padding: 10px 20px;
-    letter-spacing: 0.1em;
-    opacity: 0;
-    transform: translateY(10px);
-    transition: all 0.2s;
-    pointer-events: none;
-    z-index: 2000;
-    text-shadow: var(--glow);
-  }
-
+  .copied-toast { position: fixed; bottom: 30px; right: 40px; background: var(--green-dark); border: 1px solid var(--green-dim); color: var(--green); font-family: 'Share Tech Mono', monospace; font-size: 0.78rem; padding: 10px 20px; letter-spacing: 0.1em; opacity: 0; transform: translateY(10px); transition: all 0.2s; pointer-events: none; z-index: 2000; }
   .copied-toast.show { opacity: 1; transform: translateY(0); }
-
   ::-webkit-scrollbar { width: 6px; height: 6px; }
   ::-webkit-scrollbar-track { background: transparent; }
   ::-webkit-scrollbar-thumb { background: var(--border); }
@@ -276,15 +53,10 @@
 </style>
 </head>
 <body>
-
 <header>
-  <div class="logo">
-    ASCII.GEN
-    <span>Art Generator v1.0</span>
-  </div>
-
+  <div class="logo">ASCII.GEN<span>Art Generator v1.0</span></div>
+  <div class="status">ONLINE</div>
 </header>
-
 <div class="main">
   <div class="input-row">
     <div class="field">
@@ -309,14 +81,12 @@
       <button class="btn-generate" onclick="generate()">GENERATE</button>
     </div>
   </div>
-
   <div class="size-row">
     <span style="font-size:0.65rem;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;">Size:</span>
-    <button class="size-btn active" data-size="1" onclick="setSize(1, this)">1×</button>
-    <button class="size-btn" data-size="2" onclick="setSize(2, this)">2×</button>
-    <button class="size-btn" data-size="3" onclick="setSize(3, this)">3×</button>
+    <button class="size-btn active" onclick="setSize(1,this)">1x</button>
+    <button class="size-btn" onclick="setSize(2,this)">2x</button>
+    <button class="size-btn" onclick="setSize(3,this)">3x</button>
   </div>
-
   <div class="output-container">
     <div class="output-toolbar">
       <span id="output-label">Output</span>
@@ -326,422 +96,83 @@
         <button class="tb-btn" onclick="invertColors()">[ INVERT ]</button>
       </div>
     </div>
-    <div id="ascii-output">
-      <div class="placeholder-text">
-        > Enter text above and hit GENERATE<br>
-        > Or press ENTER to run
-      </div>
-    </div>
+    <div id="ascii-output"><div class="placeholder-text">&gt; Enter text above and hit GENERATE
+&gt; Or press ENTER to run</div></div>
   </div>
 </div>
-
 <div class="copied-toast" id="toast">COPIED TO CLIPBOARD</div>
-
 <script>
-let currentSize = 1;
-let inverted = false;
+let currentSize = 1, inverted = false;
 
-// ASCII font definitions
 const fonts = {
   block: {
-    A:"  ###  \n #   # \n#######\n#     #\n#     #",
-    B:"###### \n#     #\n###### \n#     #\n###### ",
-    C:" ######\n#      \n#      \n#      \n ###### ",
-    D:"###### \n#     #\n#     #\n#     #\n###### ",
-    E:"#######\n#      \n#####  \n#      \n#######",
-    F:"#######\n#      \n#####  \n#      \n#      ",
-    G:" ######\n#      \n#  ####\n#     #\n ###### ",
-    H:"#     #\n#     #\n#######\n#     #\n#     #",
-    I:"###\n # \n # \n # \n###",
-    J:"    ###\n      #\n      #\n#     #\n #####  ",
-    K:"#    # \n#   #  \n####   \n#   #  \n#    # ",
-    L:"#      \n#      \n#      \n#      \n#######",
-    M:"#     #\n##   ##\n# # # #\n#  #  #\n#     #",
-    N:"#     #\n##    #\n# #   #\n#  #  #\n#   ###",
-    O:" ##### \n#     #\n#     #\n#     #\n ##### ",
-    P:"###### \n#     #\n###### \n#      \n#      ",
-    Q:" ##### \n#     #\n#   # #\n#    ##\n ######",
-    R:"###### \n#     #\n###### \n#   #  \n#    ##",
-    S:" ######\n#      \n ##### \n      #\n###### ",
-    T:"#######\n   #   \n   #   \n   #   \n   #   ",
-    U:"#     #\n#     #\n#     #\n#     #\n ###### ",
-    V:"#     #\n#     #\n #   # \n  # #  \n   #   ",
-    W:"#     #\n#     #\n#  #  #\n##   ##\n#     #",
-    X:"#     #\n #   # \n  ###  \n #   # \n#     #",
-    Y:"#     #\n #   # \n  ###  \n   #   \n   #   ",
-    Z:"#######\n    #  \n   #   \n  #    \n#######",
-    " ":"       \n       \n       \n       \n       ",
-    "0":" ##### \n#    ##\n#  # ##\n## #  #\n ##### ",
-    "1":"  #    \n ###   \n  #    \n  #    \n #####  ",
-    "2":" ##### \n#     #\n   ### \n  #    \n#######",
-    "3":" ##### \n      #\n  #### \n      #\n ##### ",
-    "4":"#   #  \n#   #  \n#######\n    #  \n    #  ",
-    "5":"#######\n#      \n###### \n      #\n###### ",
-    "6":" ##### \n#      \n###### \n#     #\n ##### ",
-    "7":"#######\n     # \n    #  \n   #   \n   #   ",
-    "8":" ##### \n#     #\n ##### \n#     #\n ##### ",
-    "9":" ##### \n#     #\n ###### \n      #\n ##### ",
-    "!":"  #  \n  #  \n  #  \n     \n  #  ",
-    "?":"##### \n    # \n  ##  \n      \n  #   ",
-    ".":"   \n   \n   \n   \n # ",
-    ",":"   \n   \n   \n # \n#  ",
+    A:"  ###  \n #   # \n#######\n#     #\n#     #",B:"###### \n#     #\n###### \n#     #\n###### ",C:" ######\n#      \n#      \n#      \n ###### ",D:"###### \n#     #\n#     #\n#     #\n###### ",E:"#######\n#      \n#####  \n#      \n#######",F:"#######\n#      \n#####  \n#      \n#      ",G:" ######\n#      \n#  ####\n#     #\n ###### ",H:"#     #\n#     #\n#######\n#     #\n#     #",I:"###\n # \n # \n # \n###",J:"    ###\n      #\n      #\n#     #\n #####  ",K:"#    # \n#   #  \n####   \n#   #  \n#    # ",L:"#      \n#      \n#      \n#      \n#######",M:"#     #\n##   ##\n# # # #\n#  #  #\n#     #",N:"#     #\n##    #\n# #   #\n#  #  #\n#   ###",O:" ##### \n#     #\n#     #\n#     #\n ##### ",P:"###### \n#     #\n###### \n#      \n#      ",Q:" ##### \n#     #\n#   # #\n#    ##\n ######",R:"###### \n#     #\n###### \n#   #  \n#    ##",S:" ######\n#      \n ##### \n      #\n###### ",T:"#######\n   #   \n   #   \n   #   \n   #   ",U:"#     #\n#     #\n#     #\n#     #\n ###### ",V:"#     #\n#     #\n #   # \n  # #  \n   #   ",W:"#     #\n#     #\n#  #  #\n##   ##\n#     #",X:"#     #\n #   # \n  ###  \n #   # \n#     #",Y:"#     #\n #   # \n  ###  \n   #   \n   #   ",Z:"#######\n    #  \n   #   \n  #    \n#######"," ":"       \n       \n       \n       \n       ","0":" ##### \n#    ##\n#  # ##\n## #  #\n ##### ","1":"  #    \n ###   \n  #    \n  #    \n #####  ","2":" ##### \n#     #\n   ### \n  #    \n#######","3":" ##### \n      #\n  #### \n      #\n ##### ","4":"#   #  \n#   #  \n#######\n    #  \n    #  ","5":"#######\n#      \n###### \n      #\n###### ","6":" ##### \n#      \n###### \n#     #\n ##### ","7":"#######\n     # \n    #  \n   #   \n   #   ","8":" ##### \n#     #\n ##### \n#     #\n ##### ","9":" ##### \n#     #\n ###### \n      #\n ##### ","!":"  #  \n  #  \n  #  \n     \n  #  ","?":"##### \n    # \n  ##  \n      \n  #   ",".":"   \n   \n   \n   \n # ",",":" \n \n \n # \n#  "
   },
-
   banner: {
-    A:"  *  \n * * \n*****\n*   *\n*   *",
-    B:"**** \n*   *\n**** \n*   *\n**** ",
-    C:" ****\n*    \n*    \n*    \n **** ",
-    D:"***  \n*  * \n*   *\n*  * \n***  ",
-    E:"*****\n*    \n***  \n*    \n*****",
-    F:"*****\n*    \n***  \n*    \n*    ",
-    G:" ****\n*    \n* ***\n*   *\n **** ",
-    H:"*   *\n*   *\n*****\n*   *\n*   *",
-    I:"***\n * \n * \n * \n***",
-    J:"  ***\n    *\n    *\n*   *\n *** ",
-    K:"*   *\n*  * \n***  \n*  * \n*   *",
-    L:"*    \n*    \n*    \n*    \n*****",
-    M:"*   *\n** **\n* * *\n*   *\n*   *",
-    N:"*   *\n**  *\n* * *\n*  **\n*   *",
-    O:" *** \n*   *\n*   *\n*   *\n *** ",
-    P:"**** \n*   *\n**** \n*    \n*    ",
-    Q:" *** \n*   *\n* * *\n*  **\n ****",
-    R:"**** \n*   *\n**** \n* *  \n*  **",
-    S:" ****\n*    \n *** \n    *\n**** ",
-    T:"*****\n  *  \n  *  \n  *  \n  *  ",
-    U:"*   *\n*   *\n*   *\n*   *\n *** ",
-    V:"*   *\n*   *\n * * \n  *  \n  *  ",
-    W:"*   *\n*   *\n* * *\n** **\n*   *",
-    X:"*   *\n * * \n  *  \n * * \n*   *",
-    Y:"*   *\n * * \n  *  \n  *  \n  *  ",
-    Z:"*****\n   * \n  *  \n *   \n*****",
-    " ":"     \n     \n     \n     \n     ",
-    "0":" *** \n*  **\n* * *\n**  *\n *** ",
-    "1":" *   \n**   \n *   \n *   \n ***  ",
-    "2":" *** \n*   *\n  ** \n *   \n*****",
-    "3":" *** \n    *\n *** \n    *\n *** ",
-    "4":"*  * \n*  * \n*****\n   * \n   * ",
-    "5":"*****\n*    \n**** \n    *\n**** ",
-    "6":" *** \n*    \n**** \n*   *\n *** ",
-    "7":"*****\n    *\n   * \n  *  \n  *  ",
-    "8":" *** \n*   *\n *** \n*   *\n *** ",
-    "9":" *** \n*   *\n **** \n    *\n *** ",
-    "!":"  *  \n  *  \n  *  \n     \n  *  ",
-    "?":"***  \n   * \n  ** \n     \n  *  ",
-    ".":"  \n  \n  \n  \n* ",
-    ",":"  \n  \n  \n* \n* ",
+    A:"  *  \n * * \n*****\n*   *\n*   *",B:"**** \n*   *\n**** \n*   *\n**** ",C:" ****\n*    \n*    \n*    \n **** ",D:"***  \n*  * \n*   *\n*  * \n***  ",E:"*****\n*    \n***  \n*    \n*****",F:"*****\n*    \n***  \n*    \n*    ",G:" ****\n*    \n* ***\n*   *\n **** ",H:"*   *\n*   *\n*****\n*   *\n*   *",I:"***\n * \n * \n * \n***",J:"  ***\n    *\n    *\n*   *\n *** ",K:"*   *\n*  * \n***  \n*  * \n*   *",L:"*    \n*    \n*    \n*    \n*****",M:"*   *\n** **\n* * *\n*   *\n*   *",N:"*   *\n**  *\n* * *\n*  **\n*   *",O:" *** \n*   *\n*   *\n*   *\n *** ",P:"**** \n*   *\n**** \n*    \n*    ",Q:" *** \n*   *\n* * *\n*  **\n ****",R:"**** \n*   *\n**** \n* *  \n*  **",S:" ****\n*    \n *** \n    *\n**** ",T:"*****\n  *  \n  *  \n  *  \n  *  ",U:"*   *\n*   *\n*   *\n*   *\n *** ",V:"*   *\n*   *\n * * \n  *  \n  *  ",W:"*   *\n*   *\n* * *\n** **\n*   *",X:"*   *\n * * \n  *  \n * * \n*   *",Y:"*   *\n * * \n  *  \n  *  \n  *  ",Z:"*****\n   * \n  *  \n *   \n*****"," ":"     \n     \n     \n     \n     ","0":" *** \n*  **\n* * *\n**  *\n *** ","1":" *   \n**   \n *   \n *   \n ***  ","2":" *** \n*   *\n  ** \n *   \n*****","3":" *** \n    *\n *** \n    *\n *** ","4":"*  * \n*  * \n*****\n   * \n   * ","5":"*****\n*    \n**** \n    *\n**** ","6":" *** \n*    \n**** \n*   *\n *** ","7":"*****\n    *\n   * \n  *  \n  *  ","8":" *** \n*   *\n *** \n*   *\n *** ","9":" *** \n*   *\n **** \n    *\n *** ","!":"  *  \n  *  \n  *  \n     \n  *  ","?":"***  \n   * \n  ** \n     \n  *  ",".":"  \n  \n  \n  \n* ",",":" \n \n \n* \n* "
   },
-
   slant: {
-    A:"  /\\  \n /  \\ \n/ /\\ \\\n/__  \\\n   \\/ ",
-    B"::::::\n::  ::\n::::: \n::  ::\n::::::",
-    C:" :::::\n::    \n::    \n::    \n ::::: ",
-    D:"::::: \n::  ::\n::  ::\n::  ::\n::::: ",
-    E:"::::::\n::    \n::::  \n::    \n::::::",
-    F:"::::::\n::    \n::::  \n::    \n::    ",
-    G:" :::::\n::    \n:: :::\n::  ::\n ::::: ",
-    H:"::  ::\n::  ::\n::::::\n::  ::\n::  ::",
-    I:":::\n :: \n :: \n :: \n:::",
-    J:"   :::\n    ::\n    ::\n::  ::\n ::::  ",
-    K:"::  ::\n:: ::  \n::::   \n:: ::  \n::  ::",
-    L:"::    \n::    \n::    \n::    \n::::::",
-    M:"::   ::\n:::  ::\n:: :: ::\n::  :::\n::   ::",
-    N:"::   ::\n:::  ::\n:: :: ::\n::  :::\n::   ::",
-    O:" ::::: \n::   ::\n::   ::\n::   ::\n ::::: ",
-    P:":::::: \n::   ::\n:::::: \n::     \n::     ",
-    Q:" ::::: \n::   ::\n:: . ::\n::   ::\n :::::: ",
-    R:":::::: \n::   ::\n:::::: \n:: ::  \n::  ::",
-    S:" :::::\n::    \n ::::: \n     ::\n ::::: ",
-    T:"::::::\n  ::  \n  ::  \n  ::  \n  ::  ",
-    U:"::  ::\n::  ::\n::  ::\n::  ::\n ::::  ",
-    V:"::   ::\n::   ::\n ::  :: \n  :::: \n   ::  ",
-    W:"::   ::\n::   ::\n:: :: ::\n:::  :::\n::   ::",
-    X:"::   ::\n ::::  \n  ::   \n ::::  \n::   ::",
-    Y:"::   ::\n ::::  \n  ::   \n  ::   \n  ::   ",
-    Z:"::::::\n    :: \n   ::  \n  ::   \n::::::",
-    " ":"      \n      \n      \n      \n      ",
-    "0":" ::::: \n::   ::\n:: : ::\n::   ::\n ::::: ",
-    "1":"  ::   \n :::   \n  ::   \n  ::   \n :::::  ",
-    "2":" ::::: \n::   ::\n    :: \n  :::  \n::::::",
-    "3":" ::::: \n      ::\n  ::::  \n      ::\n ::::: ",
-    "4":"::  :: \n::  :: \n::::::\n    :: \n    :: ",
-    "5":"::::::\n::     \n:::::: \n     ::\n:::::: ",
-    "6":" ::::: \n::     \n:::::: \n::   ::\n ::::: ",
-    "7":"::::::\n     :: \n    ::  \n   ::   \n   ::   ",
-    "8":" ::::: \n::   ::\n ::::: \n::   ::\n ::::: ",
-    "9":" ::::: \n::   ::\n :::::: \n      ::\n ::::: ",
-    "!":"  ::  \n  ::  \n  ::  \n      \n  ::  ",
-    "?":"::::: \n    :: \n  :::  \n       \n  ::   ",
-    ".":"   \n   \n   \n   \n:: ",
-    ",":"   \n   \n   \n:: \n:  ",
+    A:"  /\\  \n /  \\ \n/ /\\ \\\n/__  \\\n   \\/ ",B:"::::::\n::  ::\n::::: \n::  ::\n::::::",C:" :::::\n::    \n::    \n::    \n ::::: ",D:"::::: \n::  ::\n::  ::\n::  ::\n::::: ",E:"::::::\n::    \n::::  \n::    \n::::::",F:"::::::\n::    \n::::  \n::    \n::    ",G:" :::::\n::    \n:: :::\n::  ::\n ::::: ",H:"::  ::\n::  ::\n::::::\n::  ::\n::  ::",I:":::\n :: \n :: \n :: \n:::",J:"   :::\n    ::\n    ::\n::  ::\n ::::  ",K:"::  ::\n:: ::  \n::::   \n:: ::  \n::  ::",L:"::    \n::    \n::    \n::    \n::::::",M:"::   ::\n:::  ::\n:: :: ::\n::  :::\n::   ::",N:"::   ::\n:::  ::\n:: :: ::\n::  :::\n::   ::",O:" ::::: \n::   ::\n::   ::\n::   ::\n ::::: ",P:":::::: \n::   ::\n:::::: \n::     \n::     ",Q:" ::::: \n::   ::\n:: . ::\n::   ::\n :::::: ",R:":::::: \n::   ::\n:::::: \n:: ::  \n::  ::",S:" :::::\n::    \n ::::: \n     ::\n ::::: ",T:"::::::\n  ::  \n  ::  \n  ::  \n  ::  ",U:"::  ::\n::  ::\n::  ::\n::  ::\n ::::  ",V:"::   ::\n::   ::\n ::  :: \n  :::: \n   ::  ",W:"::   ::\n::   ::\n:: :: ::\n:::  :::\n::   ::",X:"::   ::\n ::::  \n  ::   \n ::::  \n::   ::",Y:"::   ::\n ::::  \n  ::   \n  ::   \n  ::   ",Z:"::::::\n    :: \n   ::  \n  ::   \n::::::"," ":"      \n      \n      \n      \n      ","0":" ::::: \n::   ::\n:: : ::\n::   ::\n ::::: ","1":"  ::   \n :::   \n  ::   \n  ::   \n :::::  ","2":" ::::: \n::   ::\n    :: \n  :::  \n::::::","3":" ::::: \n      ::\n  ::::  \n      ::\n ::::: ","4":"::  :: \n::  :: \n::::::\n    :: \n    :: ","5":"::::::\n::     \n:::::: \n     ::\n:::::: ","6":" ::::: \n::     \n:::::: \n::   ::\n ::::: ","7":"::::::\n     :: \n    ::  \n   ::   \n   ::   ","8":" ::::: \n::   ::\n ::::: \n::   ::\n ::::: ","9":" ::::: \n::   ::\n :::::: \n      ::\n ::::: ","!":"  ::  \n  ::  \n  ::  \n      \n  ::  ","?":"::::: \n    :: \n  :::  \n       \n  ::   ",".":"   \n   \n   \n   \n:: ",",":" \n \n \n:: \n:  "
   },
-
   shadow: {
-    A:"    _    \n   / \\   \n  / _ \\  \n / ___ \\ \n/_/   \\_\\",
-    B:"____  \n|  _ \\ \n| |_) |\n|  _ < \n|_| \\_\\",
-    C:" ____ \n/ ___|\n| |   \n| |___\n\\____|",
-    D:"____  \n|  _ \\ \n| | | |\n| |_| |\n|____/",
-    E:"_____ \n| ____|\n|  _|  \n| |___ \n|_____|",
-    F:"_____ \n|  ___|\n| |_   \n|  _|  \n|_|    ",
-    G:" ____ \n/ ___|\n| |  _\n| |_| |\n\\____|",
-    H:"_   _ \n| | | |\n| |_| |\n|  _  |\n|_| |_|",
-    I:"_\n|\n|\n|\n|",
-    J:" _ \n| |\n| |\n| |\n|_|",
-    K:"_  __\n| |/ /\n|   < \n| |  \\\n|_|\\_\\",
-    L:"_     \n| |    \n| |    \n| |___ \n|_____|",
-    M:"__  __ \n|  \\/  |\n| |\\/| |\n| |  | |\n|_|  |_|",
-    N:"_   _ \n| \\ | |\n|  \\| |\n| |\\  |\n|_| \\_|",
-    O:" _____\n/ _ \\ \n| | | |\n| |_| |\n\\___/ ",
-    P:"____  \n|  _ \\ \n| |_) |\n|  __/ \n|_|    ",
-    Q:" _____\n/ _ \\ \n| | | |\n| |_| |\n\\___\\_\\",
-    R:"____  \n|  _ \\ \n| |_) |\n|  _ < \n|_| \\_\\",
-    S:" ____ \n/ ___|\n\\___ \\\n ___) |\n|____/",
-    T:"_____\n|_   _|\n  | |  \n  | |  \n  |_|  ",
-    U:"_   _ \n| | | |\n| | | |\n| |_| |\n\\___/ ",
-    V:"__   __\n\\ \\ / /\n \\ V / \n  \\_/  \n       ",
-    W:"__        __\n\\ \\      / /\n \\ \\ /\\ / / \n  \\ V  V /  \n   \\_/\\_/   ",
-    X:"__  __\n\\ \\/ /\n >  < \n/_/\\_\\\n      ",
-    Y:"__   __\n\\ \\ / /\n \\ V / \n  | |  \n  |_|  ",
-    Z:"_____\n|__  /\n  / / \n / /_ \n/_____|",
-    " ":"      \n      \n      \n      \n      ",
-    "0":" ___  \n/ _ \\ \n| | || \n| |_|| \n\\___/ ",
-    "1":" _ \n/ |\n| |\n| |\n|_|",
-    "2":" ___ \n|__ \\\n  / /\n / / \n/_/  ",
-    "3":" ___ \n|__ \\\n  ) |\n / / \n/_/  ",
-    "4":" _  _ \n| || |\n| || |\n|__  |\n   |_|",
-    "5":" ___ \n| __|\n|__ \\\n ___) |\n|____/",
-    "6":" __  \n/ /  \n/ /_ \n| '_ \\\n|_.__/",
-    "7":" _____\n|___  |\n   / / \n  / /  \n /_/   ",
-    "8":" ___ \n( _ )\n/ _ \\\n| (_) |\n\\___/ ",
-    "9":" ___ \n/ _ \\\n| (_) |\n\\__, |\n  /_/ ",
-    "!":"_ \n| |\n| |\n|_|\n(_)",
-    "?":" ___ \n|__ \\\n  ) |\n |_/ \n (_) ",
-    ".":"_\n(_)",
-    ",":" _\n( )\n|/ ",
+    A:"    _    \n   / \\   \n  / _ \\  \n / ___ \\ \n/_/   \\_\\",B:"____  \n|  _ \\ \n| |_) |\n|  _ < \n|_| \\_\\",C:" ____ \n/ ___|\n| |   \n| |___\n\\____|",D:"____  \n|  _ \\ \n| | | |\n| |_| |\n|____/",E:"_____ \n| ____|\n|  _|  \n| |___ \n|_____|",F:"_____ \n|  ___|\n| |_   \n|  _|  \n|_|    ",G:" ____ \n/ ___|\n| |  _\n| |_| |\n\\____|",H:"_   _ \n| | | |\n| |_| |\n|  _  |\n|_| |_|",I:"_\n|\n|\n|\n|",J:" _ \n| |\n| |\n| |\n|_|",K:"_  __\n| |/ /\n|   < \n| |  \\\n|_|\\_\\",L:"_     \n| |    \n| |    \n| |___ \n|_____|",M:"__  __ \n|  \\/  |\n| |\\/| |\n| |  | |\n|_|  |_|",N:"_   _ \n| \\ | |\n|  \\| |\n| |\\  |\n|_| \\_|",O:" _____\n/ _ \\ \n| | | |\n| |_| |\n\\___/ ",P:"____  \n|  _ \\ \n| |_) |\n|  __/ \n|_|    ",Q:" _____\n/ _ \\ \n| | | |\n| |_| |\n\\___\\_\\",R:"____  \n|  _ \\ \n| |_) |\n|  _ < \n|_| \\_\\",S:" ____ \n/ ___|\n\\___ \\\n ___) |\n|____/",T:"_____\n|_   _|\n  | |  \n  | |  \n  |_|  ",U:"_   _ \n| | | |\n| | | |\n| |_| |\n\\___/ ",V:"__   __\n\\ \\ / /\n \\ V / \n  \\_/  \n       ",W:"__        __\n\\ \\      / /\n \\ \\ /\\ / / \n  \\ V  V /  \n   \\_/\\_/   ",X:"__  __\n\\ \\/ /\n >  < \n/_/\\_\\\n      ",Y:"__   __\n\\ \\ / /\n \\ V / \n  | |  \n  |_|  ",Z:"_____\n|__  /\n  / / \n / /_ \n|_____|"," ":"      \n      \n      \n      \n      ","0":" ___  \n/ _ \\ \n| | || \n| |_|| \n\\___/ ","1":" _ \n/ |\n| |\n| |\n|_|","2":" ___ \n|__ \\\n  / /\n / / \n/_/  ","3":" ___ \n|__ \\\n  ) |\n / / \n/_/  ","4":" _  _ \n| || |\n| || |\n|__  |\n   |_|","5":" ___ \n| __|\n|__ \\\n ___) |\n|____/","6":" __  \n/ /  \n/ /_ \n| '_ \\\n|_.__/","7":" _____\n|___  |\n   / / \n  / /  \n /_/   ","8":" ___ \n( _ )\n/ _ \\\n| (_) |\n\\___/ ","9":" ___ \n/ _ \\\n| (_) |\n\\__, |\n  /_/ ","!":"_ \n| |\n| |\n|_|\n(_)","?":" ___ \n|__ \\\n  ) |\n |_/ \n (_) ",".":"_\n(_)",",":" _\n( )\n|/ "
   },
-
   bubble: {
-    A:" .^. \n( A )\n|/ \\|\n     ",
-    B:"(B) \n| ) \n(B) \n| ) \n(B) ",
-    C:" (C)\n(   \n(   \n(   \n (C)",
-    D:"(D) \n( )\\\n( ) |\n( )/\n(D) ",
-    E:"(EEE)\n(E   \n(EE  \n(E   \n(EEE)",
-    F:"(FFF)\n(F   \n(FF  \n(F   \n(F   ",
-    G:" (GG)\n(G   \n(G GG\n(G  G\n (GG)",
-    H:"(H H)\n(H H)\n(HHH)\n(H H)\n(H H)",
-    I:"(I)\n( )\n( )\n( )\n(I)",
-    J:"   (J)\n    ( )\n    ( )\n(J  ( )\n (JJ) ",
-    K:"(K K)\n(KK  \n(K   \n(KK  \n(K K)",
-    L:"(L   \n(L   \n(L   \n(L   \n(LLL)",
-    M:"(M   M)\n(MM MM)\n(M M M)\n(M   M)\n(M   M)",
-    N:"(N   N)\n(NN  N)\n(N N N)\n(N  NN)\n(N   N)",
-    O:" (OO) \n(O  O)\n(O  O)\n(O  O)\n (OO) ",
-    P:"(PP) \n(P P)\n(PP) \n(P   \n(P   ",
-    Q:" (QQ) \n(Q  Q)\n(Q  Q)\n(Q QQ)\n (QQQ)",
-    R:"(RR) \n(R R)\n(RR) \n(R R)\n(R  R)",
-    S:" (SS)\n(S   \n (SS)\n    S)\n(SS) ",
-    T:"(TTT)\n  T  \n  T  \n  T  \n  T  ",
-    U:"(U  U)\n(U  U)\n(U  U)\n(U  U)\n (UU) ",
-    V:"(V   V)\n(V   V)\n (V V) \n  (V)  \n   V   ",
-    W:"(W   W)\n(W   W)\n(W W W)\n(WW WW)\n(W   W)",
-    X:"(X   X)\n (X X) \n  (X)  \n (X X) \n(X   X)",
-    Y:"(Y   Y)\n (Y Y) \n  (Y)  \n   Y   \n   Y   ",
-    Z:"(ZZZ)\n   Z \n  Z  \n Z   \n(ZZZ)",
-    " ":"      \n      \n      \n      \n      ",
-    "0":" (00) \n(0  0)\n(0  0)\n(0  0)\n (00) ",
-    "1":" (1)  \n((1)  \n (1)  \n (1)  \n(111) ",
-    "2":" (22) \n(2  2)\n   2) \n  2)  \n(222) ",
-    "3":" (33) \n    3)\n (33) \n    3)\n (33) ",
-    "4":"(4 4) \n(4 4) \n(444) \n   4) \n   4) ",
-    "5":"(555) \n(5    \n(555) \n    5)\n(555) ",
-    "6":" (66) \n(6    \n(666) \n(6  6)\n (66) ",
-    "7":"(777) \n    7)\n   7) \n  7)  \n  7)  ",
-    "8":" (88) \n(8  8)\n (88) \n(8  8)\n (88) ",
-    "9":" (99) \n(9  9)\n (999)\n    9)\n (99) ",
-    "!":"(!) \n(!) \n(!) \n    \n(!) ",
-    "?":"(?) \n   )\n ?) \n    \n(?) ",
-    ".":"  \n  \n  \n  \n()",
-    ",":" \n \n \n()\n) ",
+    A:" .^. \n( A )\n|/ \\|\n     ",B:"(B) \n| ) \n(B) \n| ) \n(B) ",C:" (C)\n(   \n(   \n(   \n (C)",D:"(D) \n( )\\\n( ) |\n( )/\n(D) ",E:"(EEE)\n(E   \n(EE  \n(E   \n(EEE)",F:"(FFF)\n(F   \n(FF  \n(F   \n(F   ",G:" (GG)\n(G   \n(G GG\n(G  G\n (GG)",H:"(H H)\n(H H)\n(HHH)\n(H H)\n(H H)",I:"(I)\n( )\n( )\n( )\n(I)",J:"   (J)\n    ( )\n    ( )\n(J  ( )\n (JJ) ",K:"(K K)\n(KK  \n(K   \n(KK  \n(K K)",L:"(L   \n(L   \n(L   \n(L   \n(LLL)",M:"(M   M)\n(MM MM)\n(M M M)\n(M   M)\n(M   M)",N:"(N   N)\n(NN  N)\n(N N N)\n(N  NN)\n(N   N)",O:" (OO) \n(O  O)\n(O  O)\n(O  O)\n (OO) ",P:"(PP) \n(P P)\n(PP) \n(P   \n(P   ",Q:" (QQ) \n(Q  Q)\n(Q  Q)\n(Q QQ)\n (QQQ)",R:"(RR) \n(R R)\n(RR) \n(R R)\n(R  R)",S:" (SS)\n(S   \n (SS)\n    S)\n(SS) ",T:"(TTT)\n  T  \n  T  \n  T  \n  T  ",U:"(U  U)\n(U  U)\n(U  U)\n(U  U)\n (UU) ",V:"(V   V)\n(V   V)\n (V V) \n  (V)  \n   V   ",W:"(W   W)\n(W   W)\n(W W W)\n(WW WW)\n(W   W)",X:"(X   X)\n (X X) \n  (X)  \n (X X) \n(X   X)",Y:"(Y   Y)\n (Y Y) \n  (Y)  \n   Y   \n   Y   ",Z:"(ZZZ)\n   Z \n  Z  \n Z   \n(ZZZ)"," ":"      \n      \n      \n      \n      ","0":" (00) \n(0  0)\n(0  0)\n(0  0)\n (00) ","1":" (1)  \n((1)  \n (1)  \n (1)  \n(111) ","2":" (22) \n(2  2)\n   2) \n  2)  \n(222) ","3":" (33) \n    3)\n (33) \n    3)\n (33) ","4":"(4 4) \n(4 4) \n(444) \n   4) \n   4) ","5":"(555) \n(5    \n(555) \n    5)\n(555) ","6":" (66) \n(6    \n(666) \n(6  6)\n (66) ","7":"(777) \n    7)\n   7) \n  7)  \n  7)  ","8":" (88) \n(8  8)\n (88) \n(8  8)\n (88) ","9":" (99) \n(9  9)\n (999)\n    9)\n (99) ","!":"(!) \n(!) \n(!) \n    \n(!) ","?":"(?) \n   )\n ?) \n    \n(?) ",".":"  \n  \n  \n  \n()",",":" \n \n \n()\n) "
   },
-
   mini: {
-    A:" ^ \n/ \\\n---\n| |\n| |",
-    B:"|= \n| \\\n|= \n| /\n|= ",
-    C:" -\n/ \n|  \n\\ \n -",
-    D:"- \n|\\\n| |\n|/\n- ",
-    E:"--\n/ \n--\n\\ \n--",
-    F:"--\n/ \n--\n|  \n|  ",
-    G:" -\n/ \n| -\n\\ |\n -",
-    H:"| |\n| |\n---\n| |\n| |",
-    I:"-\n|\n|\n|\n-",
-    J:" |\n |\n |\n\\|\n -",
-    K:"|\\ \n| \\\n|- \n| /\n|\\ ",
-    L:"|\n|\n|\n|\n--",
-    M:"|\\  /|\n| \\/ |\n|    |\n|    |\n|    |",
-    N:"|\\  |\n| \\ |\n|  \\|\n|   |\n|   |",
-    O:" - \n/ \\\n| |\n\\ /\n - ",
-    P:"- \n|\\\n- \n|  \n|  ",
-    Q:" - \n/ \\\n| |\n\\ .\n --",
-    R:"- \n|\\\n- \n|\\\n| \\",
-    S:" -\n/ \n -\n /\n- ",
-    T:"---\n | \n | \n | \n | ",
-    U:"| |\n| |\n| |\n\\ /\n - ",
-    V:"\\ /\n\\ /\n \\ \n  |\n  |",
-    W:"\\ /\n\\ /\n/|\\\n| |\n| |",
-    X:"\\ /\n \\ \n  X\n / \n/ \\",
-    Y:"\\ /\n \\ \n  |\n  |\n  |",
-    Z:"--\n /\n- \n/  \n--",
-    " ":"  \n  \n  \n  \n  ",
-    "0":" - \n/|\\\n| |\n\\|/\n - ",
-    "1":" |\n ||\n |\n |\n--",
-    "2":" - \n  |\n - \n|  \n---",
-    "3":"--\n  |\n--\n  |\n--",
-    "4":"| |\n| |\n---\n  |\n  |",
-    "5":"--\n|  \n--\n  |\n--",
-    "6":" -\n/  \n--\n| |\n -",
-    "7":"--\n  |\n /\n/  \n|  ",
-    "8":" - \n| |\n - \n| |\n - ",
-    "9":" - \n| |\n --\n  |\n - ",
-    "!":"|\n|\n|\n \n|",
-    "?":"-\n |\n-\n \n|",
-    ".":"  \n  \n  \n  \n. ",
-    ",":" \n \n \n. \n, ",
+    A:" ^ \n/ \\\n---\n| |\n| |",B:"|= \n| \\\n|= \n| /\n|= ",C:" -\n/ \n|  \n\\ \n -",D:"- \n|\\\n| |\n|/\n- ",E:"--\n/ \n--\n\\ \n--",F:"--\n/ \n--\n|  \n|  ",G:" -\n/ \n| -\n\\ |\n -",H:"| |\n| |\n---\n| |\n| |",I:"-\n|\n|\n|\n-",J:" |\n |\n |\n\\|\n -",K:"|\\ \n| \\\n|- \n| /\n|\\ ",L:"|\n|\n|\n|\n--",M:"|\\  /|\n| \\/ |\n|    |\n|    |\n|    |",N:"|\\  |\n| \\ |\n|  \\|\n|   |\n|   |",O:" - \n/ \\\n| |\n\\ /\n - ",P:"- \n|\\\n- \n|  \n|  ",Q:" - \n/ \\\n| |\n\\ .\n --",R:"- \n|\\\n- \n|\\\n| \\",S:" -\n/ \n -\n /\n- ",T:"---\n | \n | \n | \n | ",U:"| |\n| |\n| |\n\\ /\n - ",V:"\\ /\n\\ /\n \\ \n  |\n  |",W:"\\ /\n\\ /\n/|\\\n| |\n| |",X:"\\ /\n \\ \n  X\n / \n/ \\",Y:"\\ /\n \\ \n  |\n  |\n  |",Z:"--\n /\n- \n/  \n--"," ":"  \n  \n  \n  \n  ","0":" - \n/|\\\n| |\n\\|/\n - ","1":" |\n ||\n |\n |\n--","2":" - \n  |\n - \n|  \n---","3":"--\n  |\n--\n  |\n--","4":"| |\n| |\n---\n  |\n  |","5":"--\n|  \n--\n  |\n--","6":" -\n/  \n--\n| |\n -","7":"--\n  |\n /\n/  \n|  ","8":" - \n| |\n - \n| |\n - ","9":" - \n| |\n --\n  |\n - ","!":"|\n|\n|\n \n|","?":"-\n |\n-\n \n|",".":"  \n  \n  \n  \n. ",",":" \n \n \n. \n, "
   },
-
   digital: {
-    A:" __ \n/  \\\n|--|\n|  |\n|  |",
-    B:"|== \n|  |\n|== \n|  |\n|== ",
-    C:" ==\n/   \n|    \n\\   \n ==",
-    D:"|== \n|  \\\n|   |\n|  /\n|== ",
-    E:"|===\n|   \n|== \n|   \n|===",
-    F:"|===\n|   \n|== \n|   \n|   ",
-    G:" ===\n/    \n| == \n|   |\n ===",
-    H:"|   |\n|   |\n|===|\n|   |\n|   |",
-    I:"|=|\n | \n | \n | \n|=|",
-    J:"   |=|\n    | \n    | \n|   | \n|===| ",
-    K:"|  /\n| / \n|/  \n| \\ \n|  \\",
-    L:"|   \n|   \n|   \n|   \n|===",
-    M:"|\\   /|\n| \\ / |\n|  V  |\n|     |\n|     |",
-    N:"|\\   |\n| \\  |\n|  \\ |\n|   \\|\n|    |",
-    O:" === \n/    \\\n|    |\n\\    /\n === ",
-    P:"|== \n|  |\n|== \n|   \n|   ",
-    Q:" === \n/    \\\n|    |\n\\ . /\n ===+",
-    R:"|== \n|  |\n|== \n|  \\\n|   \\",
-    S:" ===\n/    \n ===\n    \\\n === ",
-    T:"|===|\n  |  \n  |  \n  |  \n  |  ",
-    U:"|   |\n|   |\n|   |\n|   |\n|===|",
-    V:"|   |\n|   |\n \\  /\n  \\/\n  \\/",
-    W:"|     |\n|     |\n|  |  |\n| / \\ |\n|/   \\|",
-    X:"\\   /\n \\ / \n  X  \n / \\ \n/   \\",
-    Y:"|   |\n \\  /\n  \\/ \n  |  \n  |  ",
-    Z:"|===|\n   / \n  /  \n /   \n|===|",
-    " ":"     \n     \n     \n     \n     ",
-    "0":" === \n/| ||\n| | |\n||  |\n === ",
-    "1":"  |  \n ||  \n  |  \n  |  \n |==| ",
-    "2":" === \n    |\n === \n|    \n|===|",
-    "3":" === \n    |\n === \n    |\n === ",
-    "4":"|   |\n|   |\n|===|\n    |\n    |",
-    "5":"|===\n|    \n|===\n    |\n|===",
-    "6":" === \n|    \n|===|\n|   |\n === ",
-    "7":"|===|\n    |\n   / \n  /  \n  |  ",
-    "8":" === \n|   |\n === \n|   |\n === ",
-    "9":" === \n|   |\n|===|\n    |\n === ",
-    "!":"  |  \n  |  \n  |  \n     \n  |  ",
-    "?":"=== \n   |\n == \n     \n  |  ",
-    ".":"  \n  \n  \n  \n[]",
-    ",":" \n \n \n[]\n/ ",
+    A:" __ \n/  \\\n|--|\n|  |\n|  |",B:"|== \n|  |\n|== \n|  |\n|== ",C:" ==\n/   \n|    \n\\   \n ==",D:"|== \n|  \\\n|   |\n|  /\n|== ",E:"|===\n|   \n|== \n|   \n|===",F:"|===\n|   \n|== \n|   \n|   ",G:" ===\n/    \n| == \n|   |\n ===",H:"|   |\n|   |\n|===|\n|   |\n|   |",I:"|=|\n | \n | \n | \n|=|",J:"   |=|\n    | \n    | \n|   | \n|===| ",K:"|  /\n| / \n|/  \n| \\ \n|  \\",L:"|   \n|   \n|   \n|   \n|===",M:"|\\   /|\n| \\ / |\n|  V  |\n|     |\n|     |",N:"|\\   |\n| \\  |\n|  \\ |\n|   \\|\n|    |",O:" === \n/    \\\n|    |\n\\    /\n === ",P:"|== \n|  |\n|== \n|   \n|   ",Q:" === \n/    \\\n|    |\n\\ . /\n ===+",R:"|== \n|  |\n|== \n|  \\\n|   \\",S:" ===\n/    \n ===\n    \\\n === ",T:"|===|\n  |  \n  |  \n  |  \n  |  ",U:"|   |\n|   |\n|   |\n|   |\n|===|",V:"|   |\n|   |\n \\  /\n  \\/\n  \\/",W:"|     |\n|     |\n|  |  |\n| / \\ |\n|/   \\|",X:"\\   /\n \\ / \n  X  \n / \\ \n/   \\",Y:"|   |\n \\  /\n  \\/ \n  |  \n  |  ",Z:"|===|\n   / \n  /  \n /   \n|===|"," ":"     \n     \n     \n     \n     ","0":" === \n/| ||\n| | |\n||  |\n === ","1":"  |  \n ||  \n  |  \n  |  \n |==| ","2":" === \n    |\n === \n|    \n|===|","3":" === \n    |\n === \n    |\n === ","4":"|   |\n|   |\n|===|\n    |\n    |","5":"|===\n|    \n|===\n    |\n|===","6":" === \n|    \n|===|\n|   |\n === ","7":"|===|\n    |\n   / \n  /  \n  |  ","8":" === \n|   |\n === \n|   |\n === ","9":" === \n|   |\n|===|\n    |\n === ","!":"  |  \n  |  \n  |  \n     \n  |  ","?":"=== \n   |\n == \n     \n  |  ",".":"  \n  \n  \n  \n[]",",":" \n \n \n[]\n/ "
   },
-
   doom: {
-    A:"  _   \n / \\  \n/ _ \\ \n/ ___ \\\n/_/  \\_\\",
-    B:"___ \n|  _ \\\n| |_) |\n|  _ (\n|_| \\_\\",
-    C:" ___ \n/ __|\n| |   \n| |__ \n\\___|",
-    D:"____  \n|  _ \\ \n| | | |\n| |_| |\n|____/",
-    E:"____  \n| ___|\n|  _|  \n| |___ \n|_____|",
-    F:"____  \n|  ___|\n| |_   \n|  _|  \n|_|    ",
-    G:" ___  \n/ __| \n| |_  \n|  _| \n|_|   ",
-    H:"_  _ \n| || |\n| __ |\n| || |\n|_||_|",
-    I:"_\n|\n|\n|\n|_",
-    J:" _ \n| |\n| |\n_| |\n|__|",
-    K:"_  _\n| |/ /\n|   <\n| |  \\\n|_|\\_\\",
-    L:"_     \n| |    \n| |    \n| |___ \n|_____|",
-    M:"__  __ \n|  \\/  |\n| |\\/| |\n| |  | |\n|_|  |_|",
-    N:"_   _ \n| \\ | |\n|  \\| |\n| |\\  |\n|_| \\_|",
-    O:" ___  \n/ _ \\ \n| | | |\n| |_| |\n\\___/ ",
-    P:"____  \n|  _ \\ \n| |_) |\n|  __/ \n|_|    ",
-    Q:" ___  \n/ _ \\ \n| | | |\n| |_| |\n\\__\\_\\",
-    R:"____  \n|  _ \\ \n| |_) |\n|  _ < \n|_| \\_\\",
-    S:" ___  \n/ __| \n\\__ \\ \n ___) |\n|____/",
-    T:"_____\n|_   _|\n  | |  \n  | |  \n  |_|  ",
-    U:"_   _ \n| | | |\n| | | |\n| |_| |\n\\___/ ",
-    V:"__   __\n\\ \\ / /\n \\ V / \n  \\_/  \n       ",
-    W:"__        __\n\\ \\  /\\  / /\n \\ \\/  \\/ /\n  \\  /\\  / \n   \\/  \\/ ",
-    X:"__  __\n\\ \\/ /\n >  < \n/_/\\_\\\n      ",
-    Y:"__   __\n\\ \\ / /\n \\ V / \n  | |  \n  |_|  ",
-    Z:"_____\n|__  /\n  / / \n / /_ \n/_____|",
-    " ":"      \n      \n      \n      \n      ",
-    "0":" ___  \n/ _ \\ \n| | | |\n| |_| |\n\\___/ ",
-    "1":" _  \n/ | \n| | \n| | \n|_| ",
-    "2":" ___  \n|___ \\ \n  __) |\n |__ < \n|____/",
-    "3":" ___  \n|___ \\ \n  __) |\n <__) |\n|____/",
-    "4":" _  _  \n| || | \n| || | \n|__  | \n   |_| ",
-    "5":" ___  \n| ___|\n|___ \\\n ___) |\n|____/",
-    "6":" __  \n/ /  \n/ /_ \n| '_ \\\n|_.__/",
-    "7":" _____\n|___  |\n   / / \n  / /  \n /_/   ",
-    "8":" ___  \n( _ ) \n/ _ \\ \n| (_) |\n\\___/ ",
-    "9":" ___  \n/ _ \\ \n| (_) |\n\\__, |\n  /_/ ",
-    "!":"_  \n| | \n| | \n|_| \n(_) ",
-    "?":"___ \n|__ \\\n  ) |\n |_/ \n (_) ",
-    ".":"_\n(_)",
-    ",":" _\n( )\n|/ ",
+    A:"  _   \n / \\  \n/ _ \\ \n/ ___ \\\n/_/  \\_\\",B:"___ \n|  _ \\\n| |_) |\n|  _ (\n|_| \\_\\",C:" ___ \n/ __|\n| |   \n| |__ \n\\___|",D:"____  \n|  _ \\ \n| | | |\n| |_| |\n|____/",E:"____  \n| ___|\n|  _|  \n| |___ \n|_____|",F:"____  \n|  ___|\n| |_   \n|  _|  \n|_|    ",G:" ___  \n/ __| \n| |_  \n|  _| \n|_|   ",H:"_  _ \n| || |\n| __ |\n| || |\n|_||_|",I:"_\n|\n|\n|\n|_",J:" _ \n| |\n| |\n_| |\n|__|",K:"_  _\n| |/ /\n|   <\n| |  \\\n|_|\\_\\",L:"_     \n| |    \n| |    \n| |___ \n|_____|",M:"__  __ \n|  \\/  |\n| |\\/| |\n| |  | |\n|_|  |_|",N:"_   _ \n| \\ | |\n|  \\| |\n| |\\  |\n|_| \\_|",O:" ___  \n/ _ \\ \n| | | |\n| |_| |\n\\___/ ",P:"____  \n|  _ \\ \n| |_) |\n|  __/ \n|_|    ",Q:" ___  \n/ _ \\ \n| | | |\n| |_| |\n\\__\\_\\",R:"____  \n|  _ \\ \n| |_) |\n|  _ < \n|_| \\_\\",S:" ___  \n/ __| \n\\__ \\ \n ___) |\n|____/",T:"_____\n|_   _|\n  | |  \n  | |  \n  |_|  ",U:"_   _ \n| | | |\n| | | |\n| |_| |\n\\___/ ",V:"__   __\n\\ \\ / /\n \\ V / \n  \\_/  \n       ",W:"__        __\n\\ \\  /\\  / /\n \\ \\/  \\/ /\n  \\  /\\  / \n   \\/  \\/ ",X:"__  __\n\\ \\/ /\n >  < \n/_/\\_\\\n      ",Y:"__   __\n\\ \\ / /\n \\ V / \n  | |  \n  |_|  ",Z:"_____\n|__  /\n  / / \n / /_ \n|_____|"," ":"      \n      \n      \n      \n      ","0":" ___  \n/ _ \\ \n| | | |\n| |_| |\n\\___/ ","1":" _  \n/ | \n| | \n| | \n|_| ","2":" ___  \n|___ \\ \n  __) |\n |__ < \n|____/","3":" ___  \n|___ \\ \n  __) |\n <__) |\n|____/","4":" _  _  \n| || | \n| || | \n|__  | \n   |_| ","5":" ___  \n| ___|\n|___ \\\n ___) |\n|____/","6":" __  \n/ /  \n/ /_ \n| '_ \\\n|_.__/","7":" _____\n|___  |\n   / / \n  / /  \n /_/   ","8":" ___  \n( _ ) \n/ _ \\ \n| (_) |\n\\___/ ","9":" ___  \n/ _ \\ \n| (_) |\n\\__, |\n  /_/ ","!":"_  \n| | \n| | \n|_| \n(_) ","?":"___ \n|__ \\\n  ) |\n |_/ \n (_) ",".":"_\n(_)",",":" _\n( )\n|/ "
   }
 };
 
 function getChar(font, char) {
   const upper = char.toUpperCase();
-  if (fonts[font] && fonts[font][upper]) return fonts[font][upper];
-  if (fonts[font] && fonts[font][char]) return fonts[font][char];
+  if (fonts[font][upper] !== undefined) return fonts[font][upper];
+  if (fonts[font][char] !== undefined) return fonts[font][char];
   return fonts[font][' '] || '     \n     \n     \n     \n     ';
 }
 
 function generate() {
   const text = document.getElementById('text-input').value.trim();
   const font = document.getElementById('font-select').value;
-  
   if (!text) return;
 
-  const chars = text.split('');
-  const charLines = chars.map(c => getChar(font, c).split('\n'));
+  const charLines = text.split('').map(c => getChar(font, c).split('\n'));
   const numLines = Math.max(...charLines.map(c => c.length));
-  
-  // Normalize all chars to same number of lines
-  charLines.forEach(c => {
-    const maxWidth = Math.max(...c.map(l => l.length));
-    while (c.length < numLines) c.push(' '.repeat(maxWidth));
+
+  const normalized = charLines.map(lines => {
+    const maxW = Math.max(...lines.map(l => l.length));
+    while (lines.length < numLines) lines.push(' '.repeat(maxW));
+    return lines.map(l => l.padEnd(maxW, ' '));
   });
 
-  let result = '';
+  let rows = [];
   for (let l = 0; l < numLines; l++) {
-    result += charLines.map(c => c[l] || '').join(' ') + '\n';
+    rows.push(normalized.map(c => c[l]).join(' '));
   }
 
-  // Apply size scaling
   if (currentSize > 1) {
-    const scaled = result.split('\n').map(line => {
-      const tall = Array(currentSize).fill(
-        line.split('').map(c => c.repeat(currentSize)).join('')
-      ).join('\n');
-      return tall;
-    }).join('\n');
-    result = scaled;
+    const scaled = [];
+    for (const row of rows) {
+      const widened = row.split('').map(c => c.repeat(currentSize)).join('');
+      for (let r = 0; r < currentSize; r++) scaled.push(widened);
+    }
+    rows = scaled;
   }
 
   const output = document.getElementById('ascii-output');
-  output.innerHTML = `<span class="generated">${escapeHtml(result)}</span>`;
-  document.getElementById('output-label').textContent = `Output — ${font.toUpperCase()} font`;
-}
-
-function escapeHtml(s) {
-  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  output.innerHTML = '';
+  const span = document.createElement('span');
+  span.className = 'generated';
+  span.textContent = rows.join('\n');
+  output.appendChild(span);
+  document.getElementById('output-label').textContent = 'Output — ' + font.toUpperCase() + ' font';
 }
 
 function setSize(size, btn) {
@@ -754,12 +185,17 @@ function copyOutput() {
   const output = document.getElementById('ascii-output');
   const text = output.innerText;
   if (!text || text.includes('Enter text above')) return;
-  navigator.clipboard.writeText(text).then(() => showToast());
+  navigator.clipboard.writeText(text).then(showToast);
 }
 
 function clearOutput() {
   document.getElementById('text-input').value = '';
-  document.getElementById('ascii-output').innerHTML = `<div class="placeholder-text">> Enter text above and hit GENERATE<br>> Or press ENTER to run</div>`;
+  const output = document.getElementById('ascii-output');
+  output.innerHTML = '';
+  const div = document.createElement('div');
+  div.className = 'placeholder-text';
+  div.textContent = '> Enter text above and hit GENERATE\n> Or press ENTER to run';
+  output.appendChild(div);
   document.getElementById('output-label').textContent = 'Output';
 }
 
@@ -774,13 +210,8 @@ function showToast() {
   setTimeout(() => t.classList.remove('show'), 1800);
 }
 
-document.getElementById('text-input').addEventListener('keydown', e => {
-  if (e.key === 'Enter') generate();
-});
-
-document.getElementById('font-select').addEventListener('change', () => {
-  if (document.getElementById('text-input').value.trim()) generate();
-});
+document.getElementById('text-input').addEventListener('keydown', e => { if (e.key === 'Enter') generate(); });
+document.getElementById('font-select').addEventListener('change', () => { if (document.getElementById('text-input').value.trim()) generate(); });
 </script>
 </body>
 </html>
